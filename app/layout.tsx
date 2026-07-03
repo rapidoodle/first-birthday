@@ -25,6 +25,8 @@ export const metadata: Metadata = {
   title: "A Fairy First Birthday for Niane 🧚 | Invitation",
   description: `Join us as we celebrate ${event.fullName}'s first birthday on ${event.dateLabel}. RSVP inside!`,
   metadataBase: new URL(event.siteUrl),
+  robots: { index: false, follow: false }, // private family site — keep off Google
+
   openGraph: {
     title: "🧚 A Fairy First Birthday for Niane ✨",
     description:

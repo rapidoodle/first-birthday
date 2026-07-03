@@ -5,8 +5,9 @@ import { motion } from "framer-motion";
 import { Section, SectionTitle } from "@/components/Section";
 import FairyPhoto from "@/components/FairyPhoto";
 import Lightbox from "@/components/Lightbox";
+import { usePhotoManifest } from "@/lib/photos";
 
-/** Masonry gallery — drop photos at /public/photos/gallery-1.jpg … gallery-9.jpg */
+/** Masonry gallery — photos uploaded via /admin (falls back to /public/photos). */
 const ASPECTS = [
   "aspect-[3/4]",
   "aspect-square",
@@ -21,6 +22,13 @@ const ASPECTS = [
 
 export default function Gallery() {
   const [selected, setSelected] = useState<number | null>(null);
+  const manifest = usePhotoManifest();
+
+  // Uploaded photos if any; otherwise 9 local/placeholder slots.
+  const photos =
+    manifest && manifest.gallery.length > 0
+      ? manifest.gallery.map((g) => g.url)
+      : ASPECTS.map((_, i) => `/photos/gallery-${i + 1}.jpg`);
 
   return (
     <Section id="gallery">
@@ -31,9 +39,9 @@ export default function Gallery() {
       />
 
       <div className="masonry mx-auto max-w-5xl">
-        {ASPECTS.map((aspect, i) => (
+        {photos.map((src, i) => (
           <motion.button
-            key={i}
+            key={src}
             onClick={() => setSelected(i)}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -44,19 +52,19 @@ export default function Gallery() {
             aria-label={`Open gallery photo ${i + 1}`}
           >
             <FairyPhoto
-              src={`/photos/gallery-${i + 1}.jpg`}
+              src={src}
               alt={`Gallery photo ${i + 1}`}
               seed={i + 3}
-              aspect={aspect}
+              aspect={ASPECTS[i % ASPECTS.length]}
             />
           </motion.button>
         ))}
       </div>
 
       <Lightbox open={selected !== null} onClose={() => setSelected(null)}>
-        {selected !== null && (
+        {selected !== null && photos[selected] && (
           <FairyPhoto
-            src={`/photos/gallery-${selected + 1}.jpg`}
+            src={photos[selected]}
             alt={`Gallery photo ${selected + 1}`}
             seed={selected + 3}
             aspect="aspect-auto"

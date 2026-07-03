@@ -6,12 +6,16 @@ import { Section, SectionTitle } from "@/components/Section";
 import FairyPhoto from "@/components/FairyPhoto";
 import Lightbox from "@/components/Lightbox";
 import { milestones } from "@/lib/config";
+import { usePhotoManifest } from "@/lib/photos";
 
 const MONTH_EMOJI = ["🍼", "😊", "🎀", "🧸", "🥄", "🌷", "🗣️", "🐣", "🌟", "👋", "👣", "🎂"];
 
-/** 12 monthly memory cards — drop photos at /public/photos/month-1.jpg … month-12.jpg */
+/** 12 monthly memory cards — uploaded via /admin (falls back to /public/photos). */
 export default function Memories() {
   const [selected, setSelected] = useState<number | null>(null);
+  const manifest = usePhotoManifest();
+  const monthSrc = (n: number) =>
+    manifest?.months[String(n)] ?? `/photos/month-${n}.jpg`;
 
   return (
     <Section id="memories">
@@ -36,7 +40,8 @@ export default function Memories() {
           >
             <div className="relative overflow-hidden">
               <FairyPhoto
-                src={`/photos/month-${i + 1}.jpg`}
+                key={monthSrc(i + 1)}
+                src={monthSrc(i + 1)}
                 alt={`Niane at month ${i + 1}`}
                 seed={i}
                 className="transition-transform duration-500 group-hover:scale-105"
@@ -68,7 +73,8 @@ export default function Memories() {
       >
         {selected !== null && (
           <FairyPhoto
-            src={`/photos/month-${selected + 1}.jpg`}
+            key={monthSrc(selected + 1)}
+            src={monthSrc(selected + 1)}
             alt={`Niane at month ${selected + 1}`}
             seed={selected}
             aspect="aspect-[4/3]"
