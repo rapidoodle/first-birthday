@@ -37,3 +37,4 @@ Easiest: push to GitHub and import at https://vercel.com (add the two env vars i
 
 Full-screen hero with live countdown, glowing fairy-light arch and drifting fairy dust with parallax, 12-month memory timeline with lightbox, fairy detail cards with Google Maps / Add-to-Calendar / Share buttons, event-day weather widget (Open-Meteo, unlocks ~2 weeks before), QR code, validated RSVP form with confetti, masonry gallery with lazy loading, gift note, guestbook, background-music toggle, cursor sparkles, first-visit confetti, and a spinning fairy-wand loading screen.
 # first-birthday
+# first-birthday
