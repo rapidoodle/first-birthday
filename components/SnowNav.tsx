@@ -5,15 +5,15 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
-  { id: "home", label: "Home", emoji: "🧚" },
-  { id: "memories", label: "Memories", emoji: "🦋" },
-  { id: "details", label: "Details", emoji: "🌸" },
+  { id: "home", label: "Home", emoji: "🍎" },
+  { id: "memories", label: "Memories", emoji: "📖" },
+  { id: "details", label: "Details", emoji: "👑" },
   { id: "rsvp", label: "RSVP", emoji: "🎈" },
   { id: "gallery", label: "Gallery", emoji: "📸" },
 ];
 
 /** Floating pill navigation that smooth-scrolls between sections. */
-export default function FairyNav() {
+export default function SnowNav() {
   const [active, setActive] = useState("home");
 
   useEffect(() => {
@@ -40,15 +40,15 @@ export default function FairyNav() {
       className="fixed left-1/2 top-4 z-50 -translate-x-1/2"
       aria-label="Site navigation"
     >
-      <div className="flex items-center gap-1 rounded-full border border-white/60 bg-white/70 px-2 py-1.5 shadow-fairy backdrop-blur-xl">
+      <div className="flex items-center gap-1 rounded-full border border-white/60 bg-white/70 px-2 py-1.5 shadow-snow backdrop-blur-xl">
         {LINKS.map(({ id, label, emoji }) => (
           <a
             key={id}
             href={`#${id}`}
             className={cn(
-              "flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-semibold text-fairy-ink/70 transition-all duration-300 hover:bg-fairy-pink/50 hover:text-fairy-rose",
+              "flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-semibold text-snow-ink/70 transition-all duration-300 hover:bg-snow-blush/50 hover:text-snow-red-deep",
               active === id &&
-                "bg-gradient-to-r from-fairy-pink to-fairy-lavender text-fairy-purple-deep shadow-sm"
+                "bg-gradient-to-r from-snow-blush to-snow-blue text-snow-royal shadow-sm"
             )}
           >
             <span aria-hidden>{emoji}</span>

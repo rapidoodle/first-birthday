@@ -35,7 +35,7 @@ export default function GatePage() {
         initial={{ opacity: 0, y: 24, scale: 0.96 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full max-w-md rounded-[2.5rem] border border-white/70 bg-white/70 p-10 text-center shadow-fairy-lg backdrop-blur-xl"
+        className="w-full max-w-md rounded-[2.5rem] border border-white/70 bg-white/70 p-10 text-center shadow-snow-lg backdrop-blur-xl"
       >
         <motion.span
           className="inline-block text-6xl"
@@ -43,13 +43,13 @@ export default function GatePage() {
           transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
           aria-hidden
         >
-          🧚
+          🪞
         </motion.span>
-        <h1 className="mt-4 font-display text-3xl font-bold text-fairy-purple-deep">
-          A Fairy First Birthday
+        <h1 className="mt-4 font-display text-3xl font-bold text-snow-royal">
+          The Fairest Little One
         </h1>
-        <p className="mt-2 font-script text-xl text-fairy-rose">
-          whisper the magic word to enter…
+        <p className="mt-2 font-script text-xl text-snow-red-deep">
+          mirror, mirror on the wall…
         </p>
 
         <form onSubmit={submit} className="mt-8 space-y-4">
@@ -70,18 +70,18 @@ export default function GatePage() {
             />
           </motion.div>
           {error && (
-            <p className="text-sm font-semibold text-fairy-rose">
+            <p className="text-sm font-semibold text-snow-red-deep">
               Hmm, that&apos;s not it — check your invitation! 💌
             </p>
           )}
           <Button type="submit" className="w-full" disabled={busy}>
             <Sparkles size={18} />
-            {busy ? "Opening…" : "Enter the Garden"}
+            {busy ? "Opening…" : "Enter the Kingdom"}
           </Button>
         </form>
 
-        <p className="mt-6 text-xs text-fairy-ink/50">
-          The magic word is on your invitation. 🌸
+        <p className="mt-6 text-xs text-snow-ink/50">
+          The magic word is on your invitation. 🍎
         </p>
       </motion.div>
     </main>

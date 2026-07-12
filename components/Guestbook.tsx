@@ -62,7 +62,7 @@ export default function Guestbook() {
 
       <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-5">
         <Reveal className="md:col-span-2">
-          <div className="rounded-3xl border border-white/70 bg-white/70 p-6 shadow-fairy backdrop-blur-xl">
+          <div className="rounded-3xl border border-white/70 bg-white/70 p-6 shadow-snow backdrop-blur-xl">
             <div>
               <Label htmlFor="wish-name">Your Name</Label>
               <Input
@@ -99,7 +99,7 @@ export default function Guestbook() {
         <div className="space-y-4 md:col-span-3">
           {wishes.length === 0 && (
             <Reveal>
-              <p className="rounded-3xl border border-white/70 bg-white/60 p-6 text-center text-fairy-ink/60 shadow-fairy backdrop-blur">
+              <p className="rounded-3xl border border-white/70 bg-white/60 p-6 text-center text-snow-ink/60 shadow-snow backdrop-blur">
                 Be the first to leave a magical wish! ✨
               </p>
             </Reveal>
@@ -111,10 +111,10 @@ export default function Guestbook() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: Math.min(i * 0.08, 0.4) }}
-              className="rounded-3xl border border-white/70 bg-white/65 p-5 shadow-fairy backdrop-blur"
+              className="rounded-3xl border border-white/70 bg-white/65 p-5 shadow-snow backdrop-blur"
             >
-              <p className="leading-relaxed text-fairy-ink/85">“{w.message}”</p>
-              <p className="mt-2 font-display text-sm font-bold text-fairy-rose">
+              <p className="leading-relaxed text-snow-ink/85">“{w.message}”</p>
+              <p className="mt-2 font-display text-sm font-bold text-snow-red-deep">
                 — {w.name}
               </p>
             </motion.div>

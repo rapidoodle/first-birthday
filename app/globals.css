@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --fairy-pink: #ffd6e8;
-  --fairy-lavender: #e2d4f5;
-  --fairy-blue: #c5e8f2;
-  --fairy-mint: #cdf2e4;
-  --fairy-cream: #fff8e1;
+  --snow-blush: #ffdde1;
+  --snow-blue: #cfe0f5;
+  --snow-gold: #f7de9c;
+  --snow-leaf: #cdebd3;
+  --snow-cream: #fff9ec;
 }
 
 html {
@@ -15,21 +15,21 @@ html {
 }
 
 body {
-  color: #6b5876;
+  color: #54465e;
   background: linear-gradient(
     160deg,
-    #fff8e1 0%,
-    #ffe9f2 22%,
-    #f0e6fa 48%,
-    #e0f3f8 74%,
-    #e4f8ef 100%
+    #fff9ec 0%,
+    #ffe9ec 22%,
+    #e9f0fb 48%,
+    #fdf3d9 74%,
+    #e9f7ec 100%
   );
   background-attachment: fixed;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: #f7a8c9;
+  background: #e2707d;
   color: #fff;
 }
 
@@ -38,10 +38,10 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #fff2f8;
+  background: #fff3ee;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(#f7a8c9, #b79ce0);
+  background: linear-gradient(#e2707d, #8fa9e0);
   border-radius: 999px;
 }
 

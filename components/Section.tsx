@@ -53,15 +53,15 @@ export function SectionTitle({
   return (
     <Reveal className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
       {eyebrow && (
-        <p className="mb-3 font-script text-xl text-fairy-rose md:text-2xl">
+        <p className="mb-3 font-script text-xl text-snow-red-deep md:text-2xl">
           {eyebrow}
         </p>
       )}
-      <h2 className="font-display text-4xl font-bold text-fairy-purple-deep md:text-5xl">
+      <h2 className="font-display text-4xl font-bold text-snow-royal md:text-5xl">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-base leading-relaxed text-fairy-ink/80 md:text-lg">
+        <p className="mt-4 text-base leading-relaxed text-snow-ink/80 md:text-lg">
           {subtitle}
         </p>
       )}

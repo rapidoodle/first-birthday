@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { submitRsvp } from "@/lib/supabase";
-import { fairyBurst } from "@/components/FirstVisitConfetti";
+import { snowBurst } from "@/components/FirstVisitConfetti";
 import { cn } from "@/lib/utils";
 
 const schema = z.object({
@@ -54,7 +54,7 @@ export default function Rsvp() {
         message: values.message || undefined,
       });
       setSubmitted(true);
-      if (values.attending === "yes") fairyBurst();
+      if (values.attending === "yes") snowBurst();
     } catch {
       setError("Something went wrong — please try again in a moment.");
     }
@@ -65,14 +65,14 @@ export default function Rsvp() {
       <SectionTitle
         eyebrow="will you join us?"
         title="RSVP 🎈"
-        subtitle="Kindly respond by August 9 so we can save you a magical seat."
+        subtitle="Kindly respond by August 9 so we can save you a seat at the cottage."
       />
 
       <Reveal className="mx-auto max-w-xl">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-white/70 bg-white/70 p-8 shadow-fairy-lg backdrop-blur-xl md:p-10">
-          {/* fairy corner decorations */}
-          <span aria-hidden className="absolute -left-3 -top-3 text-4xl opacity-60">🦋</span>
-          <span aria-hidden className="absolute -bottom-3 -right-3 text-4xl opacity-60">🌷</span>
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-white/70 bg-white/70 p-8 shadow-snow-lg backdrop-blur-xl md:p-10">
+          {/* snow corner decorations */}
+          <span aria-hidden className="absolute -left-3 -top-3 text-4xl opacity-60">🍎</span>
+          <span aria-hidden className="absolute -bottom-3 -right-3 text-4xl opacity-60">🌹</span>
 
           <AnimatePresence mode="wait">
             {submitted ? (
@@ -83,10 +83,10 @@ export default function Rsvp() {
                 className="py-10 text-center"
               >
                 <span className="text-6xl">🎉</span>
-                <h3 className="mt-4 font-display text-3xl font-bold text-fairy-purple-deep">
+                <h3 className="mt-4 font-display text-3xl font-bold text-snow-royal">
                   Thank you!
                 </h3>
-                <p className="mt-3 text-lg text-fairy-ink/80">
+                <p className="mt-3 text-lg text-snow-ink/80">
                   We can&apos;t wait to celebrate with you!
                 </p>
               </motion.div>
@@ -103,14 +103,14 @@ export default function Rsvp() {
                     <Label htmlFor="firstName">First Name</Label>
                     <Input id="firstName" placeholder="Juan" {...register("firstName")} />
                     {errors.firstName && (
-                      <p className="mt-1 text-xs font-semibold text-fairy-rose">{errors.firstName.message}</p>
+                      <p className="mt-1 text-xs font-semibold text-snow-red-deep">{errors.firstName.message}</p>
                     )}
                   </div>
                   <div>
                     <Label htmlFor="lastName">Last Name</Label>
                     <Input id="lastName" placeholder="Dela Cruz" {...register("lastName")} />
                     {errors.lastName && (
-                      <p className="mt-1 text-xs font-semibold text-fairy-rose">{errors.lastName.message}</p>
+                      <p className="mt-1 text-xs font-semibold text-snow-red-deep">{errors.lastName.message}</p>
                     )}
                   </div>
                 </div>
@@ -125,7 +125,7 @@ export default function Rsvp() {
                     {...register("guests")}
                   />
                   {errors.guests && (
-                    <p className="mt-1 text-xs font-semibold text-fairy-rose">{errors.guests.message}</p>
+                    <p className="mt-1 text-xs font-semibold text-snow-red-deep">{errors.guests.message}</p>
                   )}
                 </div>
 
@@ -134,7 +134,7 @@ export default function Rsvp() {
                   <div className="grid grid-cols-2 gap-3">
                     {(
                       [
-                        ["yes", "Yes, magical! ✨"],
+                        ["yes", "Yes, we'll be there! 🍎"],
                         ["no", "Sadly, no 💔"],
                       ] as const
                     ).map(([value, label]) => (
@@ -147,8 +147,8 @@ export default function Rsvp() {
                         className={cn(
                           "rounded-2xl border-2 px-4 py-3 font-display font-bold transition-all duration-200",
                           attending === value
-                            ? "border-fairy-pink-deep bg-gradient-to-r from-fairy-pink to-fairy-lavender text-fairy-purple-deep shadow-fairy"
-                            : "border-fairy-lavender/70 bg-white/60 text-fairy-ink/70 hover:border-fairy-pink"
+                            ? "border-snow-red bg-gradient-to-r from-snow-blush to-snow-blue text-snow-royal shadow-snow"
+                            : "border-snow-blue/70 bg-white/60 text-snow-ink/70 hover:border-snow-blush"
                         )}
                       >
                         {label}
@@ -157,7 +157,7 @@ export default function Rsvp() {
                   </div>
                   <input type="hidden" {...register("attending")} />
                   {errors.attending && (
-                    <p className="mt-1 text-xs font-semibold text-fairy-rose">{errors.attending.message}</p>
+                    <p className="mt-1 text-xs font-semibold text-snow-red-deep">{errors.attending.message}</p>
                   )}
                 </div>
 
@@ -180,7 +180,7 @@ export default function Rsvp() {
                 </div>
 
                 {error && (
-                  <p className="rounded-2xl bg-fairy-pink/40 p-3 text-sm font-semibold text-fairy-rose">
+                  <p className="rounded-2xl bg-snow-blush/40 p-3 text-sm font-semibold text-snow-red-deep">
                     {error}
                   </p>
                 )}

@@ -1,6 +1,6 @@
 # 🍭 Niane's Sweet One — 1st Birthday Invitation
 
-A pastel fairy-garden one-page invitation site for Niane Reign Perez's first birthday (August 23, 2026), built with Next.js 15, TypeScript, Tailwind CSS, Framer Motion, React Hook Form + Zod, and a Supabase-ready backend.
+A storybook Snow White one-page invitation site for Niane Reign Perez's first birthday (August 23, 2026), built with Next.js 15, TypeScript, Tailwind CSS, Framer Motion, React Hook Form + Zod, and a Supabase-ready backend.
 
 ## Quick start
 
@@ -46,6 +46,6 @@ Easiest: push to GitHub and import at https://vercel.com (add the two env vars i
 
 ## Features
 
-Full-screen hero with live countdown, glowing fairy-light arch and drifting fairy dust with parallax, 12-month memory timeline with lightbox, fairy detail cards with Google Maps / Add-to-Calendar / Share buttons, event-day weather widget (Open-Meteo, unlocks ~2 weeks before), QR code, validated RSVP form with confetti, masonry gallery with lazy loading, gift note, guestbook, background-music toggle, cursor sparkles, first-visit confetti, and a spinning fairy-wand loading screen.
+Full-screen hero with live countdown, glowing lantern arch and drifting storybook sprites with parallax, 12-month memory timeline with lightbox, snow detail cards with Google Maps / Add-to-Calendar / Share buttons, event-day weather widget (Open-Meteo, unlocks ~2 weeks before), QR code, validated RSVP form with confetti, masonry gallery with lazy loading, gift note, guestbook, background-music toggle, cursor sparkles, first-visit confetti, and a swinging enchanted-apple loading screen.
 # first-birthday
 # first-birthday

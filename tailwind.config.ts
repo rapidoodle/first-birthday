@@ -9,31 +9,32 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        fairy: {
-          pink: "#FFD6E8",
-          "pink-deep": "#F7A8C9",
-          rose: "#E4739E",
-          lavender: "#E2D4F5",
-          purple: "#B79CE0",
-          "purple-deep": "#8E6BBF",
-          blue: "#C5E8F2",
-          "blue-deep": "#8FD3E8",
-          mint: "#CDF2E4",
-          "mint-deep": "#8FE0C5",
-          cream: "#FFF8E1",
-          butter: "#FCEEB5",
-          ink: "#6B5876",
+        snow: {
+          blush: "#FFDDE1",
+          red: "#E2707D",
+          "red-deep": "#C6455C",
+          blue: "#CFE0F5",
+          "blue-deep": "#8FA9E0",
+          royal: "#44578F",
+          sky: "#C9E2F5",
+          "sky-deep": "#79A8D8",
+          leaf: "#CDEBD3",
+          "leaf-deep": "#7FBF8B",
+          gold: "#F7DE9C",
+          "gold-deep": "#E3B65C",
+          cream: "#FFF9EC",
+          ink: "#54465E",
         },
       },
       fontFamily: {
-        display: ["var(--font-display)", "cursive"],
+        display: ["var(--font-display)", "serif"],
         script: ["var(--font-script)", "cursive"],
         body: ["var(--font-body)", "sans-serif"],
       },
       boxShadow: {
-        fairy: "0 10px 40px -12px rgba(183, 156, 224, 0.35)",
-        "fairy-lg": "0 20px 60px -15px rgba(228, 115, 158, 0.3)",
-        glow: "0 0 30px rgba(255, 214, 232, 0.8)",
+        snow: "0 10px 40px -12px rgba(143, 169, 224, 0.35)",
+        "snow-lg": "0 20px 60px -15px rgba(198, 69, 92, 0.28)",
+        glow: "0 0 30px rgba(247, 222, 156, 0.9)",
       },
       keyframes: {
         float: {

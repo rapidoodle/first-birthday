@@ -4,19 +4,19 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const pastels = [
-  "from-fairy-pink to-fairy-lavender",
-  "from-fairy-blue to-fairy-mint",
-  "from-fairy-butter to-fairy-pink",
-  "from-fairy-lavender to-fairy-blue",
-  "from-fairy-mint to-fairy-butter",
+  "from-snow-blush to-snow-blue",
+  "from-snow-sky to-snow-leaf",
+  "from-snow-gold to-snow-blush",
+  "from-snow-blue to-snow-sky",
+  "from-snow-leaf to-snow-gold",
 ];
-const emojis = ["🧚", "🦋", "🌸", "✨", "🌷", "🎈", "🍄", "🌈"];
+const emojis = ["🍎", "👑", "🐦", "✨", "🌹", "🍄", "🌲", "💛"];
 
 /**
  * Renders /public{src}. If the file doesn't exist yet, shows a cute
  * pastel placeholder instead — drop your real photos into /public/photos.
  */
-export default function FairyPhoto({
+export default function SnowPhoto({
   src,
   alt,
   seed = 0,

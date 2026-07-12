@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Section, SectionTitle } from "@/components/Section";
-import FairyPhoto from "@/components/FairyPhoto";
+import SnowPhoto from "@/components/SnowPhoto";
 import Lightbox from "@/components/Lightbox";
 import { usePhotoManifest } from "@/lib/photos";
 
@@ -35,7 +35,7 @@ export default function Gallery() {
       <SectionTitle
         eyebrow="little moments"
         title="Enchanted Gallery 📸"
-        subtitle="A few more sprinkles of pixie dust and favorite memories."
+        subtitle="A few more pages from her little storybook."
       />
 
       <div className="masonry mx-auto max-w-5xl">
@@ -48,10 +48,10 @@ export default function Gallery() {
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
             whileHover={{ scale: 1.02 }}
-            className="block w-full overflow-hidden rounded-3xl border border-white/70 shadow-fairy transition-shadow duration-300 hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fairy-purple"
+            className="block w-full overflow-hidden rounded-3xl border border-white/70 shadow-snow transition-shadow duration-300 hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-snow-blue-deep"
             aria-label={`Open gallery photo ${i + 1}`}
           >
-            <FairyPhoto
+            <SnowPhoto
               src={src}
               alt={`Gallery photo ${i + 1}`}
               seed={i + 3}
@@ -63,7 +63,7 @@ export default function Gallery() {
 
       <Lightbox open={selected !== null} onClose={() => setSelected(null)}>
         {selected !== null && photos[selected] && (
-          <FairyPhoto
+          <SnowPhoto
             src={photos[selected]}
             alt={`Gallery photo ${selected + 1}`}
             seed={selected + 3}

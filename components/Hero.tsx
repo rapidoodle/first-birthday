@@ -27,18 +27,15 @@ function useCountdown(targetISO: string) {
   return t;
 }
 
-/** Glowing fairy orbs drifting along the top, like garden fairy lights. */
+/** Enchanted lantern orbs drifting along the top of the hero. */
 const ORBS = [
-  { c: "#F7A8C9", x: 8, d: 0 },
-  { c: "#FCEEB5", x: 22, d: 0.4 },
-  { c: "#B79CE0", x: 36, d: 0.8 },
-  { c: "#8FD3E8", x: 62, d: 0.2 },
-  { c: "#8FE0C5", x: 76, d: 0.6 },
-  { c: "#FFD6E8", x: 90, d: 1.0 },
+  { c: "#E2707D", x: 8, d: 0 },
+  { c: "#F7DE9C", x: 22, d: 0.4 },
+  { c: "#8FA9E0", x: 36, d: 0.8 },
+  { c: "#C9E2F5", x: 62, d: 0.2 },
+  { c: "#7FBF8B", x: 76, d: 0.6 },
+  { c: "#FFDDE1", x: 90, d: 1.0 },
 ];
-
-const STAR =
-  "95,18 111.5,65.3 161.6,66.4 121.6,96.7 136.1,144.6 95,116 53.9,144.6 68.4,96.7 28.4,66.4 78.5,65.3";
 
 export default function Hero() {
   const t = useCountdown(event.dateISO);
@@ -48,7 +45,7 @@ export default function Hero() {
       id="home"
       className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-5 pb-16 pt-24 text-center"
     >
-      {/* Fairy-light orb arch */}
+      {/* Lantern orb arch */}
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-56">
         {ORBS.map((o, i) => (
           <motion.div
@@ -66,61 +63,66 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Magic wand illustration */}
+      {/* Enchanted apple illustration */}
       <motion.div
-        initial={{ scale: 0, rotate: -30 }}
+        initial={{ scale: 0, rotate: -20 }}
         animate={{ scale: 1, rotate: 0 }}
         transition={{ delay: 2.0, type: "spring", damping: 14 }}
         className="relative mb-6"
         aria-hidden
       >
         <motion.svg
-          width="190"
-          height="235"
-          viewBox="0 0 190 240"
+          width="200"
+          height="210"
+          viewBox="0 0 200 210"
           className="drop-shadow-xl"
           animate={{ y: [0, -12, 0], rotate: [0, 3, 0, -3, 0] }}
           transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
         >
           <defs>
-            <linearGradient id="fairystar" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#FFD6E8" />
-              <stop offset="50%" stopColor="#F7A8C9" />
-              <stop offset="100%" stopColor="#8FD3E8" />
-            </linearGradient>
+            <radialGradient id="appleskin" cx="0.35" cy="0.3" r="1">
+              <stop offset="0%" stopColor="#F5A3AC" />
+              <stop offset="55%" stopColor="#E2707D" />
+              <stop offset="100%" stopColor="#C6455C" />
+            </radialGradient>
           </defs>
-          {/* wand */}
-          <rect x="90" y="150" width="10" height="85" rx="5" fill="#FFF8E1" stroke="#FCEEB5" />
-          {/* glow */}
-          <circle cx="95" cy="82" r="76" fill="#FFD6E8" opacity="0.35" />
-          {/* star */}
-          <polygon
-            points={STAR}
-            fill="url(#fairystar)"
-            stroke="#fff"
-            strokeWidth="8"
-            strokeLinejoin="round"
+          {/* soft glow */}
+          <circle cx="100" cy="125" r="80" fill="#F7DE9C" opacity="0.35" />
+          {/* stem */}
+          <path d="M100 58 C 98 40, 104 32, 112 26" fill="none" stroke="#8a6b4f" strokeWidth="8" strokeLinecap="round" />
+          {/* leaf */}
+          <path d="M112 40 C 132 22, 156 26, 158 30 C 152 50, 130 56, 112 46 Z" fill="#7FBF8B" />
+          {/* apple body */}
+          <path
+            d="M100 66
+               C 72 44, 28 58, 26 104
+               C 24 146, 58 190, 88 186
+               C 93 185, 97 183, 100 180
+               C 103 183, 107 185, 112 186
+               C 142 190, 176 146, 174 104
+               C 172 58, 128 44, 100 66 Z"
+            fill="url(#appleskin)"
           />
-          <circle cx="72" cy="58" r="7" fill="#fff" opacity="0.8" />
-          {/* trailing sparkles */}
-          <circle cx="30" cy="150" r="4" fill="#B79CE0" opacity="0.7" />
-          <circle cx="160" cy="140" r="5" fill="#8FE0C5" opacity="0.7" />
-          <circle cx="45" cy="35" r="3" fill="#F7A8C9" opacity="0.8" />
-          <circle cx="150" cy="30" r="4" fill="#8FD3E8" opacity="0.8" />
+          {/* shine */}
+          <ellipse cx="66" cy="98" rx="16" ry="26" fill="#fff" opacity="0.45" transform="rotate(-18 66 98)" />
+          {/* sparkles */}
+          <circle cx="176" cy="60" r="5" fill="#F7DE9C" />
+          <circle cx="26" cy="66" r="4" fill="#8FA9E0" opacity="0.8" />
+          <circle cx="186" cy="140" r="4" fill="#CDEBD3" />
         </motion.svg>
         <motion.span
-          className="absolute -right-8 top-6 text-4xl"
+          className="absolute -right-9 top-8 text-4xl"
           animate={{ rotate: [0, 15, 0], y: [0, -8, 0] }}
           transition={{ repeat: Infinity, duration: 4 }}
         >
-          🦋
+          🐦
         </motion.span>
         <motion.span
-          className="absolute -left-10 bottom-14 text-4xl"
+          className="absolute -left-10 bottom-10 text-4xl"
           animate={{ rotate: [0, -15, 0], y: [0, -10, 0] }}
           transition={{ repeat: Infinity, duration: 5, delay: 0.5 }}
         >
-          🌸
+          🌹
         </motion.span>
       </motion.div>
 
@@ -128,29 +130,29 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.2, duration: 0.8 }}
-        className="font-script text-2xl text-fairy-rose md:text-3xl"
+        className="font-script text-3xl text-snow-red-deep md:text-4xl"
       >
-        our little fairy {event.fullName} is turning one!
+        mirror, mirror on the wall…
       </motion.p>
 
       <motion.h1
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2.35, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="mt-3 max-w-4xl font-display text-5xl font-extrabold leading-tight text-fairy-purple-deep md:text-7xl"
+        className="mt-3 max-w-4xl font-display text-5xl font-extrabold leading-tight text-snow-royal md:text-7xl"
       >
-        🧚 A{" "}
-        <span className="bg-gradient-to-r from-fairy-rose via-fairy-pink-deep to-fairy-blue-deep bg-clip-text text-transparent">
-          Fairy First Birthday
-        </span>{" "}
-        for Niane ✨
+        🍎 Niane, the{" "}
+        <span className="bg-gradient-to-r from-snow-red-deep via-snow-red to-snow-blue-deep bg-clip-text text-transparent">
+          Fairest Little One
+        </span>
+        , is turning one! ✨
       </motion.h1>
 
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2.55, duration: 0.8 }}
-        className="mt-5 max-w-xl text-lg text-fairy-ink/80 md:text-xl"
+        className="mt-5 max-w-xl text-lg text-snow-ink/80 md:text-xl"
       >
         Join us as we celebrate our little sweetheart&apos;s first birthday!
       </motion.p>
@@ -173,19 +175,19 @@ export default function Hero() {
         ).map(([label, value]) => (
           <div
             key={label}
-            className="flex w-[76px] flex-col items-center rounded-3xl border border-white/70 bg-white/70 px-2 py-4 shadow-fairy backdrop-blur-xl md:w-24 md:py-5"
+            className="flex w-[76px] flex-col items-center rounded-3xl border border-white/70 bg-white/70 px-2 py-4 shadow-snow backdrop-blur-xl md:w-24 md:py-5"
           >
-            <span className="font-display text-3xl font-extrabold tabular-nums text-fairy-rose md:text-4xl">
+            <span className="font-display text-3xl font-extrabold tabular-nums text-snow-red-deep md:text-4xl">
               {value !== undefined ? String(value).padStart(2, "0") : "--"}
             </span>
-            <span className="mt-1 text-[11px] font-bold uppercase tracking-wider text-fairy-ink/60 md:text-xs">
+            <span className="mt-1 text-[11px] font-bold uppercase tracking-wider text-snow-ink/60 md:text-xs">
               {label}
             </span>
           </div>
         ))}
       </motion.div>
       {t?.done && (
-        <p className="mt-4 font-script text-2xl text-fairy-rose">
+        <p className="mt-4 font-script text-3xl text-snow-red-deep">
           It&apos;s party time! 🎉
         </p>
       )}
@@ -205,7 +207,7 @@ export default function Hero() {
       <motion.a
         href="#story"
         aria-label="Scroll down"
-        className="absolute bottom-6 text-2xl text-fairy-purple"
+        className="absolute bottom-6 text-2xl text-snow-blue-deep"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 1.8 }}
       >

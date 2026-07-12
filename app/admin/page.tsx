@@ -105,13 +105,13 @@ export default function AdminPage() {
       <main className="flex min-h-screen items-center justify-center px-5">
         <form
           onSubmit={unlock}
-          className="w-full max-w-sm rounded-[2rem] border border-white/70 bg-white/70 p-8 text-center shadow-fairy-lg backdrop-blur-xl"
+          className="w-full max-w-sm rounded-[2rem] border border-white/70 bg-white/70 p-8 text-center shadow-snow-lg backdrop-blur-xl"
         >
-          <Lock className="mx-auto text-fairy-purple-deep" size={32} />
-          <h1 className="mt-3 font-display text-2xl font-bold text-fairy-purple-deep">
+          <Lock className="mx-auto text-snow-royal" size={32} />
+          <h1 className="mt-3 font-display text-2xl font-bold text-snow-royal">
             Photo Admin
           </h1>
-          <p className="mt-1 text-sm text-fairy-ink/60">For Mama & Papa only 🤫</p>
+          <p className="mt-1 text-sm text-snow-ink/60">For Mama & Papa only 🤫</p>
           <Input
             type="password"
             value={password}
@@ -121,7 +121,7 @@ export default function AdminPage() {
             autoFocus
           />
           {authError && (
-            <p className="mt-2 text-sm font-semibold text-fairy-rose">{authError}</p>
+            <p className="mt-2 text-sm font-semibold text-snow-red-deep">{authError}</p>
           )}
           <Button type="submit" className="mt-4 w-full">
             Unlock
@@ -133,26 +133,26 @@ export default function AdminPage() {
 
   return (
     <main className="mx-auto max-w-4xl px-5 py-12">
-      <h1 className="font-display text-3xl font-bold text-fairy-purple-deep">
+      <h1 className="font-display text-3xl font-bold text-snow-royal">
         📸 Niane&apos;s Photo Admin
       </h1>
-      <p className="mt-2 text-fairy-ink/70">
+      <p className="mt-2 text-snow-ink/70">
         Tap a slot to upload. Photos appear on the site instantly — no redeploy
         needed. Images are resized automatically, so phone photos are fine.
       </p>
       {current && !current.configured && (
-        <p className="mt-4 rounded-2xl bg-fairy-butter/60 p-4 text-sm font-semibold text-fairy-ink">
+        <p className="mt-4 rounded-2xl bg-snow-gold/60 p-4 text-sm font-semibold text-snow-ink">
           ⚠️ Supabase isn&apos;t configured yet — uploads won&apos;t work until the
           env vars are set (see README).
         </p>
       )}
       {error && (
-        <p className="mt-4 rounded-2xl bg-fairy-pink/50 p-4 text-sm font-semibold text-fairy-rose">
+        <p className="mt-4 rounded-2xl bg-snow-blush/50 p-4 text-sm font-semibold text-snow-red-deep">
           {error}
         </p>
       )}
 
-      <h2 className="mt-10 font-display text-xl font-bold text-fairy-purple-deep">
+      <h2 className="mt-10 font-display text-xl font-bold text-snow-royal">
         Monthly Memories (1–12)
       </h2>
       <div className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
@@ -162,7 +162,7 @@ export default function AdminPage() {
           return (
             <label
               key={slot}
-              className="group relative block cursor-pointer overflow-hidden rounded-2xl border-2 border-fairy-lavender/60 bg-white/60 shadow-fairy transition-transform hover:-translate-y-0.5"
+              className="group relative block cursor-pointer overflow-hidden rounded-2xl border-2 border-snow-blue/60 bg-white/60 shadow-snow transition-transform hover:-translate-y-0.5"
             >
               <input
                 type="file"
@@ -180,22 +180,22 @@ export default function AdminPage() {
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={url} alt={slot} className="h-full w-full object-cover" />
                 ) : (
-                  <div className="flex h-full w-full items-center justify-center text-fairy-ink/40">
+                  <div className="flex h-full w-full items-center justify-center text-snow-ink/40">
                     <Upload size={20} />
                   </div>
                 )}
               </div>
-              <span className="absolute left-1.5 top-1.5 rounded-full bg-white/90 px-2 py-0.5 font-display text-xs font-bold text-fairy-rose shadow">
+              <span className="absolute left-1.5 top-1.5 rounded-full bg-white/90 px-2 py-0.5 font-display text-xs font-bold text-snow-red-deep shadow">
                 {i + 1}
               </span>
               {busySlot === slot && (
                 <span className="absolute inset-0 flex items-center justify-center bg-white/70">
-                  <Loader2 className="animate-spin text-fairy-purple-deep" size={22} />
+                  <Loader2 className="animate-spin text-snow-royal" size={22} />
                 </span>
               )}
               {doneSlot === slot && (
-                <span className="absolute inset-0 flex items-center justify-center bg-fairy-mint/70">
-                  <Check className="text-fairy-purple-deep" size={26} />
+                <span className="absolute inset-0 flex items-center justify-center bg-snow-leaf/70">
+                  <Check className="text-snow-royal" size={26} />
                 </span>
               )}
             </label>
@@ -204,7 +204,7 @@ export default function AdminPage() {
       </div>
 
       <div className="mt-12 flex items-center justify-between">
-        <h2 className="font-display text-xl font-bold text-fairy-purple-deep">
+        <h2 className="font-display text-xl font-bold text-snow-royal">
           Gallery
         </h2>
         <Button
@@ -236,21 +236,21 @@ export default function AdminPage() {
         {(current?.gallery ?? []).map((g) => (
           <div
             key={g.path}
-            className="group relative overflow-hidden rounded-2xl border-2 border-fairy-lavender/60 shadow-fairy"
+            className="group relative overflow-hidden rounded-2xl border-2 border-snow-blue/60 shadow-snow"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={g.url} alt="" className="aspect-square w-full object-cover" />
             <button
               onClick={() => remove(g.path)}
               aria-label="Delete photo"
-              className="absolute right-1.5 top-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-fairy-rose opacity-0 shadow transition-opacity group-hover:opacity-100"
+              className="absolute right-1.5 top-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-snow-red-deep opacity-0 shadow transition-opacity group-hover:opacity-100"
             >
               <Trash2 size={14} />
             </button>
           </div>
         ))}
         {current?.gallery.length === 0 && (
-          <p className="col-span-full rounded-2xl bg-white/60 p-6 text-center text-sm text-fairy-ink/50">
+          <p className="col-span-full rounded-2xl bg-white/60 p-6 text-center text-sm text-snow-ink/50">
             No gallery photos yet — add some! 🌸
           </p>
         )}

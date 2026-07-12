@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Section, SectionTitle } from "@/components/Section";
-import FairyPhoto from "@/components/FairyPhoto";
+import SnowPhoto from "@/components/SnowPhoto";
 import Lightbox from "@/components/Lightbox";
 import { milestones } from "@/lib/config";
 import { usePhotoManifest } from "@/lib/photos";
@@ -21,7 +21,7 @@ export default function Memories() {
     <Section id="memories">
       <SectionTitle
         eyebrow="watch her grow"
-        title="Monthly Memories 🦋"
+        title="Monthly Memories 🍎"
         subtitle="Twelve months of sweetness — one adorable moment at a time."
       />
 
@@ -35,26 +35,26 @@ export default function Memories() {
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.55, delay: (i % 4) * 0.08 }}
             whileHover={{ y: -8, scale: 1.02 }}
-            className="group overflow-hidden rounded-3xl border border-white/70 bg-white/70 text-left shadow-fairy backdrop-blur transition-shadow duration-300 hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fairy-purple"
+            className="group overflow-hidden rounded-3xl border border-white/70 bg-white/70 text-left shadow-snow backdrop-blur transition-shadow duration-300 hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-snow-blue-deep"
             aria-label={`Month ${i + 1}: ${caption}`}
           >
             <div className="relative overflow-hidden">
-              <FairyPhoto
+              <SnowPhoto
                 key={monthSrc(i + 1)}
                 src={monthSrc(i + 1)}
                 alt={`Niane at month ${i + 1}`}
                 seed={i}
                 className="transition-transform duration-500 group-hover:scale-105"
               />
-              <span className="absolute left-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 font-display text-sm font-extrabold text-fairy-rose shadow-fairy">
+              <span className="absolute left-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 font-display text-sm font-extrabold text-snow-red-deep shadow-snow">
                 {i + 1}
               </span>
             </div>
             <div className="p-4">
-              <p className="font-display text-sm font-bold text-fairy-purple-deep">
+              <p className="font-display text-sm font-bold text-snow-royal">
                 {MONTH_EMOJI[i]} Month {i + 1}
               </p>
-              <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-fairy-ink/70">
+              <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-snow-ink/70">
                 {caption}
               </p>
             </div>
@@ -72,7 +72,7 @@ export default function Memories() {
         }
       >
         {selected !== null && (
-          <FairyPhoto
+          <SnowPhoto
             key={monthSrc(selected + 1)}
             src={monthSrc(selected + 1)}
             alt={`Niane at month ${selected + 1}`}

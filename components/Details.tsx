@@ -53,18 +53,18 @@ function useEventWeather() {
 const CARDS = [
   {
     icon: CalendarHeart,
-    emoji: "🌸",
+    emoji: "🍎",
     label: "Date",
     value: event.dateLabel,
   },
-  { icon: Clock3, emoji: "🦋", label: "Time", value: event.timeLabel },
+  { icon: Clock3, emoji: "🪞", label: "Time", value: event.timeLabel },
   {
     icon: MapPin,
-    emoji: "🍄",
+    emoji: "🏰",
     label: "Venue",
     value: `${event.venueName} · ${event.venueAddress}`,
   },
-  { icon: Shirt, emoji: "✨", label: "Dress Code", value: event.dressCode },
+  { icon: Shirt, emoji: "👑", label: "Dress Code", value: event.dressCode },
 ];
 
 export default function Details() {
@@ -72,7 +72,7 @@ export default function Details() {
 
   const share = async () => {
     const data = {
-      title: "A Fairy First Birthday 🧚",
+      title: "The Fairest Little One 🍎",
       text: "You're invited to Niane's 1st birthday!",
       url: typeof window !== "undefined" ? window.location.href : event.siteUrl,
     };
@@ -91,16 +91,16 @@ export default function Details() {
     <Section id="details">
       <SectionTitle
         eyebrow="save the date"
-        title="Birthday Details 🌸"
+        title="Birthday Details 🍎"
         subtitle="Everything you need to know before the sweetest day of the year."
       />
 
       <div className="mx-auto grid max-w-4xl gap-5 sm:grid-cols-2">
         {CARDS.map(({ icon: Icon, emoji, label, value }, i) => (
           <Reveal key={label} delay={i * 0.1}>
-            <div className="group flex h-full items-start gap-4 rounded-3xl border border-white/70 bg-white/65 p-6 shadow-fairy backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-glow">
+            <div className="group flex h-full items-start gap-4 rounded-3xl border border-white/70 bg-white/65 p-6 shadow-snow backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-glow">
               <div className="relative">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-fairy-pink to-fairy-lavender text-fairy-purple-deep shadow-fairy">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-snow-blush to-snow-blue text-snow-royal shadow-snow">
                   <Icon size={24} />
                 </div>
                 <span className="absolute -right-2 -top-2 text-xl transition-transform duration-300 group-hover:scale-125">
@@ -108,10 +108,10 @@ export default function Details() {
                 </span>
               </div>
               <div>
-                <p className="font-display text-sm font-bold uppercase tracking-wide text-fairy-rose">
+                <p className="font-display text-sm font-bold uppercase tracking-wide text-snow-red-deep">
                   {label}
                 </p>
-                <p className="mt-1 font-semibold leading-snug text-fairy-ink">
+                <p className="mt-1 font-semibold leading-snug text-snow-ink">
                   {value}
                 </p>
               </div>
@@ -122,19 +122,19 @@ export default function Details() {
 
       {/* Weather widget */}
       <Reveal delay={0.2} className="mx-auto mt-5 max-w-4xl">
-        <div className="flex items-center gap-4 rounded-3xl border border-white/70 bg-gradient-to-r from-fairy-blue/60 to-fairy-mint/60 p-6 shadow-fairy backdrop-blur-xl">
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/80 text-fairy-blue-deep shadow-fairy">
+        <div className="flex items-center gap-4 rounded-3xl border border-white/70 bg-gradient-to-r from-snow-sky/60 to-snow-leaf/60 p-6 shadow-snow backdrop-blur-xl">
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/80 text-snow-sky-deep shadow-snow">
             <CloudSun size={26} />
           </div>
           <div>
-            <p className="font-display text-sm font-bold uppercase tracking-wide text-fairy-purple-deep">
+            <p className="font-display text-sm font-bold uppercase tracking-wide text-snow-royal">
               Weather on the big day
             </p>
-            <p className="mt-1 text-sm font-semibold text-fairy-ink/85">
-              {status === "loading" && "Checking the fairy skies…"}
+            <p className="mt-1 text-sm font-semibold text-snow-ink/85">
+              {status === "loading" && "Asking the magic mirror…"}
               {status === "far" &&
                 "Forecast unlocks about two weeks before the party — check back soon! ☁️"}
-              {status === "error" && "Couldn't reach the weather fairies — try again later."}
+              {status === "error" && "The mirror is cloudy — try again later."}
               {status === "ok" &&
                 weather &&
                 `${weather.tMin}°–${weather.tMax}°C with a ${weather.rain}% chance of rain. 🌤️`}
@@ -163,8 +163,8 @@ export default function Details() {
 
       {/* QR code */}
       <Reveal delay={0.35} className="mx-auto mt-12 max-w-xs text-center">
-        <div className="rounded-3xl border border-white/70 bg-white/70 p-6 shadow-fairy backdrop-blur-xl">
-          <p className="font-script text-xl text-fairy-rose">scan me!</p>
+        <div className="rounded-3xl border border-white/70 bg-white/70 p-6 shadow-snow backdrop-blur-xl">
+          <p className="font-script text-xl text-snow-red-deep">scan me!</p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={`https://api.qrserver.com/v1/create-qr-code/?size=180x180&color=8E6BBF&bgcolor=ffffff&data=${encodeURIComponent(event.siteUrl)}`}
@@ -174,7 +174,7 @@ export default function Details() {
             loading="lazy"
             className="mx-auto mt-3 rounded-2xl"
           />
-          <p className="mt-3 text-xs text-fairy-ink/60">
+          <p className="mt-3 text-xs text-snow-ink/60">
             Share this QR so guests can open the invitation instantly 💌
           </p>
         </div>

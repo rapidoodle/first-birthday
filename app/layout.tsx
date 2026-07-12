@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Baloo_2, Quicksand, Pacifico } from "next/font/google";
+import { Fraunces, Quicksand, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import { event } from "@/lib/config";
 
-const display = Baloo_2({
+const display = Fraunces({
   subsets: ["latin"],
   variable: "--font-display",
   weight: ["500", "600", "700", "800"],
@@ -15,26 +15,25 @@ const body = Quicksand({
   weight: ["400", "500", "600", "700"],
 });
 
-const script = Pacifico({
+const script = Great_Vibes({
   subsets: ["latin"],
   variable: "--font-script",
   weight: "400",
 });
 
 export const metadata: Metadata = {
-  title: "A Fairy First Birthday for Niane 🧚 | Invitation",
+  title: "Niane, the Fairest Little One 🍎 | First Birthday",
   description: `Join us as we celebrate ${event.fullName}'s first birthday on ${event.dateLabel}. RSVP inside!`,
   metadataBase: new URL(event.siteUrl),
   robots: { index: false, follow: false }, // private family site — keep off Google
-
   openGraph: {
-    title: "🧚 A Fairy First Birthday for Niane ✨",
+    title: "🍎 Niane, the Fairest Little One, is turning ONE ✨",
     description:
-      "One whole year of smiles, giggles, and unforgettable memories. Join us for a pastel fairyland celebration!",
+      "One whole year of smiles, giggles, and unforgettable memories. Join us for a storybook Snow White celebration!",
     type: "website",
   },
   icons: {
-    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧚</text></svg>",
+    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍎</text></svg>",
   },
 };
 

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const MAGIC = ["🧚", "✨", "🦋", "🌸", "🌷", "🍄", "⭐", "💫", "🎀", "🌿"];
+const STORYBOOK = ["🍎", "✨", "👑", "🐦", "🌹", "🍄", "🌲", "💛", "🪞", "🦋"];
 
 interface Sprite {
   emoji: string;
@@ -15,8 +15,8 @@ interface Sprite {
   opacity: number;
 }
 
-/** Ambient fairy dust, petals & butterflies drifting behind every section + gentle parallax. */
-export default function FloatingFairy() {
+/** Ambient storybook sprites drifting behind every section + gentle parallax. */
+export default function FloatingSnow() {
   const [sprites, setSprites] = useState<Sprite[]>([]);
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -180]);
@@ -25,7 +25,7 @@ export default function FloatingFairy() {
     // Generated client-side to avoid hydration mismatch.
     setSprites(
       Array.from({ length: 18 }, (_, i) => ({
-        emoji: MAGIC[i % MAGIC.length],
+        emoji: STORYBOOK[i % STORYBOOK.length],
         left: Math.random() * 96,
         top: Math.random() * 100,
         size: 18 + Math.random() * 26,

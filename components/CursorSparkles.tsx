@@ -2,9 +2,9 @@
 
 import { useEffect, useRef } from "react";
 
-const SPARKLES = ["✨", "🦋", "⭐", "💗"];
+const SPARKLES = ["✨", "🍎", "⭐", "💛"];
 
-/** Tiny fairy sparkles trail the cursor (desktop only, throttled). */
+/** Tiny snow sparkles trail the cursor (desktop only, throttled). */
 export default function CursorSparkles() {
   const last = useRef(0);
 

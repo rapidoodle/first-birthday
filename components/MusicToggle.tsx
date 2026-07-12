@@ -44,7 +44,7 @@ export default function MusicToggle() {
       <button
         onClick={toggle}
         aria-label={playing ? "Pause music" : "Play music"}
-        className="flex h-12 w-12 items-center justify-center rounded-full border border-white/60 bg-white/80 text-fairy-purple-deep shadow-fairy backdrop-blur-xl transition-transform hover:scale-110 active:scale-95"
+        className="flex h-12 w-12 items-center justify-center rounded-full border border-white/60 bg-white/80 text-snow-royal shadow-snow backdrop-blur-xl transition-transform hover:scale-110 active:scale-95"
       >
         {playing ? (
           <motion.span
@@ -58,9 +58,9 @@ export default function MusicToggle() {
         )}
       </button>
       {unavailable && (
-        <p className="absolute bottom-14 right-0 w-52 rounded-2xl bg-white/90 p-3 text-xs text-fairy-ink shadow-fairy backdrop-blur">
+        <p className="absolute bottom-14 right-0 w-52 rounded-2xl bg-white/90 p-3 text-xs text-snow-ink shadow-snow backdrop-blur">
           Add a song at{" "}
-          <code className="text-fairy-rose">public/audio/lullaby.mp3</code> to
+          <code className="text-snow-red-deep">public/audio/lullaby.mp3</code> to
           enable music 🎵
         </p>
       )}

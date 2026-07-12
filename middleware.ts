@@ -9,7 +9,7 @@ export function middleware(req: NextRequest) {
   const expected = process.env.SITE_PASSCODE;
   if (!expected) return NextResponse.next();
 
-  const cookie = req.cookies.get("fairy_gate")?.value;
+  const cookie = req.cookies.get("snow_gate")?.value;
   if (cookie === expected) return NextResponse.next();
 
   const url = req.nextUrl.clone();

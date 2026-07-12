@@ -14,7 +14,7 @@ export async function POST(req: Request) {
   }
 
   const res = NextResponse.json({ ok: true });
-  res.cookies.set("fairy_gate", expected ?? "open", {
+  res.cookies.set("snow_gate", expected ?? "open", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",

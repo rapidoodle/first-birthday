@@ -1,6 +1,6 @@
 import LoadingScreen from "@/components/LoadingScreen";
-import FairyNav from "@/components/FairyNav";
-import FloatingFairy from "@/components/FloatingFairy";
+import SnowNav from "@/components/SnowNav";
+import FloatingSnow from "@/components/FloatingSnow";
 import CursorSparkles from "@/components/CursorSparkles";
 import MusicToggle from "@/components/MusicToggle";
 import FirstVisitConfetti from "@/components/FirstVisitConfetti";
@@ -19,9 +19,9 @@ export default function Home() {
     <main className="relative">
       <LoadingScreen />
       <FirstVisitConfetti />
-      <FloatingFairy />
+      <FloatingSnow />
       <CursorSparkles />
-      <FairyNav />
+      <SnowNav />
       <MusicToggle />
       <Hero />
       <Story />

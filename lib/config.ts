@@ -11,8 +11,8 @@ export const event = {
   dateLabel: "Sunday, August 23, 2026",
   timeLabel: "3:00 PM – 6:00 PM",
   venueName: "The Sweet Garden Events Hall", // placeholder
-  venueAddress: "123 Fairyland Avenue, Quezon City", // placeholder
-  dressCode: "Fairy pastels — wings and flower crowns welcome!",
+  venueAddress: "123 Enchanted Forest Lane, Quezon City", // placeholder
+  dressCode: "Storybook pastels — little princes & princesses welcome!",
   // Google Maps: paste your venue link, or leave as search query
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=The+Sweet+Garden+Events+Hall",
@@ -28,7 +28,7 @@ export const calendarUrl = (() => {
   const end = "20260823T100000Z";
   const params = new URLSearchParams({
     action: "TEMPLATE",
-    text: "A Fairy First Birthday — Niane turns 1 🧚",
+    text: "The Fairest Little One — Niane turns 1 🍎",
     dates: `${start}/${end}`,
     details:
       "Join us as we celebrate Niane's first birthday! Dress code: pastel colors.",

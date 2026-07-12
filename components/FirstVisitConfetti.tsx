@@ -3,9 +3,9 @@
 import { useEffect } from "react";
 import confetti from "canvas-confetti";
 
-const PASTELS = ["#F7A8C9", "#B79CE0", "#8FD3E8", "#8FE0C5", "#FCEEB5"];
+const PASTELS = ["#E2707D", "#8FA9E0", "#F7DE9C", "#7FBF8B", "#FFDDE1"];
 
-export function fairyBurst() {
+export function snowBurst() {
   const opts = { colors: PASTELS, disableForReducedMotion: true };
   confetti({ ...opts, particleCount: 90, spread: 75, origin: { y: 0.65 } });
   setTimeout(
@@ -37,7 +37,7 @@ export default function FirstVisitConfetti() {
   useEffect(() => {
     if (localStorage.getItem("nia-visited")) return;
     localStorage.setItem("nia-visited", "1");
-    const t = setTimeout(fairyBurst, 2300); // after the loading screen
+    const t = setTimeout(snowBurst, 2300); // after the loading screen
     return () => clearTimeout(t);
   }, []);
 
