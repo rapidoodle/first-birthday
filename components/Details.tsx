@@ -7,7 +7,6 @@ import {
   MapPin,
   Shirt,
   CalendarPlus,
-  Share2,
   CloudSun,
 } from "lucide-react";
 import { Section, SectionTitle, Reveal } from "@/components/Section";
@@ -69,23 +68,6 @@ const CARDS = [
 
 export default function Details() {
   const { weather, status } = useEventWeather();
-
-  const share = async () => {
-    const data = {
-      title: "The Fairest Little One 🍎",
-      text: "You're invited to Niane's 1st birthday!",
-      url: typeof window !== "undefined" ? window.location.href : event.siteUrl,
-    };
-    try {
-      if (navigator.share) await navigator.share(data);
-      else {
-        await navigator.clipboard.writeText(data.url);
-        alert("Invitation link copied! 💌");
-      }
-    } catch {
-      /* user cancelled */
-    }
-  };
 
   return (
     <Section id="details">
@@ -156,9 +138,6 @@ export default function Details() {
         >
           <CalendarPlus size={18} /> Add to Google Calendar
         </Button>
-        <Button variant="secondary" onClick={share}>
-          <Share2 size={18} /> Share Invitation
-        </Button>
       </Reveal>
 
       {/* QR code */}
@@ -167,7 +146,7 @@ export default function Details() {
           <p className="font-script text-xl text-snow-red-deep">scan me!</p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`https://api.qrserver.com/v1/create-qr-code/?size=180x180&color=8E6BBF&bgcolor=ffffff&data=${encodeURIComponent(event.siteUrl)}`}
+            src={`https://api.qrserver.com/v1/create-qr-code/?size=180x180&color=44578F&bgcolor=ffffff&data=${encodeURIComponent(event.siteUrl)}`}
             alt="QR code linking to this invitation"
             width={180}
             height={180}

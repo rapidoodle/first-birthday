@@ -7,25 +7,25 @@ export const event = {
   childName: "Niane",
   fullName: "Niane Reign Perez",
   // Local date & time of the party (placeholder time — edit!)
-  dateISO: "2026-08-23T15:00:00+08:00",
+  dateISO: "2026-08-23T14:00:00+08:00",
   dateLabel: "Sunday, August 23, 2026",
-  timeLabel: "3:00 PM – 6:00 PM",
-  venueName: "The Sweet Garden Events Hall", // placeholder
-  venueAddress: "123 Enchanted Forest Lane, Quezon City", // placeholder
+  timeLabel: "2:00 PM – 5:00 PM",
+  venueName: "Kinder City",
+  venueAddress: "Vista Mall, Sta. Rosa, Laguna",
   dressCode: "Storybook pastels — little princes & princesses welcome!",
   // Google Maps: paste your venue link, or leave as search query
   mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=The+Sweet+Garden+Events+Hall",
-  // Venue coordinates for the weather widget (placeholder: Quezon City)
-  lat: 14.676,
-  lon: 121.0437,
+    "https://www.google.com/maps/search/?api=1&query=Kinder+City+Vista+Mall+Santa+Rosa+Laguna",
+  // Venue coordinates for the weather widget (Santa Rosa, Laguna)
+  lat: 14.3122,
+  lon: 121.1114,
   // Used by the QR code & share button. Set to your deployed URL.
   siteUrl: "https://nias-sweet-one.vercel.app",
 };
 
 export const calendarUrl = (() => {
-  const start = "20260823T070000Z"; // 3 PM PHT in UTC
-  const end = "20260823T100000Z";
+  const start = "20260823T060000Z"; // 2 PM PHT in UTC
+  const end = "20260823T090000Z"; // 5 PM PHT
   const params = new URLSearchParams({
     action: "TEMPLATE",
     text: "The Fairest Little One — Niane turns 1 🍎",
