@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { Section, SectionTitle, Reveal } from "@/components/Section";
 import { Button } from "@/components/ui/button";
+import VenueVideo from "@/components/VenueVideo";
 import { event, calendarUrl } from "@/lib/config";
 
 interface Weather {
@@ -139,6 +140,9 @@ export default function Details() {
           <CalendarPlus size={18} /> Add to Google Calendar
         </Button>
       </Reveal>
+
+      {/* Venue video (shows once venueVideoUrl is set in lib/config.ts) */}
+      <VenueVideo />
 
       {/* QR code */}
       <Reveal delay={0.35} className="mx-auto mt-12 max-w-xs text-center">

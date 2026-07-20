@@ -21,6 +21,9 @@ export const event = {
   lon: 121.1114,
   // Used by the QR code & share button. Set to your deployed URL.
   siteUrl: "https://nias-sweet-one.vercel.app",
+  // YouTube link for the "Peek at the Venue" video (any format:
+  // youtube.com/watch?v=…, youtu.be/…, shorts). Leave "" to hide the video.
+  venueVideoUrl: "https://youtube.com/shorts/2llGIe1AY94",
 };
 
 export const calendarUrl = (() => {
