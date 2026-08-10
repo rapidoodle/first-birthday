@@ -48,7 +48,7 @@ export default function LoadingScreen() {
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ repeat: Infinity, duration: 1.6 }}
           >
-            mirror, mirror on the wall…
+            Mirror on the wall…
           </motion.p>
         </motion.div>
       )}

@@ -11,7 +11,7 @@ export default function Story() {
             🍎
           </span>
           <p className="font-script text-2xl text-snow-red-deep md:text-3xl">
-            once upon a time…
+            Once upon a time…
           </p>
           <p className="mt-6 text-lg leading-relaxed text-snow-ink/85 md:text-xl">
             One whole year of smiles, giggles, and unforgettable memories. We

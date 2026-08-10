@@ -55,7 +55,7 @@ export default function Guestbook() {
   return (
     <Section id="guestbook">
       <SectionTitle
-        eyebrow="leave some love"
+        eyebrow="Leave some love"
         title="Guestbook 💌"
         subtitle="Drop a birthday wish for Niane — before or after the party!"
       />

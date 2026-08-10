@@ -13,10 +13,23 @@ import Gallery from "@/components/Gallery";
 import Gifts from "@/components/Gifts";
 import Guestbook from "@/components/Guestbook";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <main className="relative">
+      {/* Fixed background image */}
+      <div className="fixed inset-0 -z-10">
+        <Image
+          src="/photos/niane_banner.jpeg"
+          alt=""
+          fill
+          className="object-cover object-top"
+          priority
+        />
+        <div className="absolute inset-0 bg-white/60" />
+      </div>
+
       <LoadingScreen />
       <FirstVisitConfetti />
       <FloatingSnow />

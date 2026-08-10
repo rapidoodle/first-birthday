@@ -43,10 +43,10 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-5 pb-16 pt-24 text-center"
+      className="relative flex min-h-screen flex-col items-center justify-end overflow-hidden px-5 pb-16 pt-24 text-center"
     >
       {/* Lantern orb arch */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-56">
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 z-10 h-56">
         {ORBS.map((o, i) => (
           <motion.div
             key={i}
@@ -63,76 +63,15 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Enchanted apple illustration */}
-      <motion.div
-        initial={{ scale: 0, rotate: -20 }}
-        animate={{ scale: 1, rotate: 0 }}
-        transition={{ delay: 2.0, type: "spring", damping: 14 }}
-        className="relative mb-6"
-        aria-hidden
-      >
-        <motion.svg
-          width="200"
-          height="210"
-          viewBox="0 0 200 210"
-          className="drop-shadow-xl"
-          animate={{ y: [0, -12, 0], rotate: [0, 3, 0, -3, 0] }}
-          transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-        >
-          <defs>
-            <radialGradient id="appleskin" cx="0.35" cy="0.3" r="1">
-              <stop offset="0%" stopColor="#F5A3AC" />
-              <stop offset="55%" stopColor="#E2707D" />
-              <stop offset="100%" stopColor="#C6455C" />
-            </radialGradient>
-          </defs>
-          {/* soft glow */}
-          <circle cx="100" cy="125" r="80" fill="#F7DE9C" opacity="0.35" />
-          {/* stem */}
-          <path d="M100 58 C 98 40, 104 32, 112 26" fill="none" stroke="#8a6b4f" strokeWidth="8" strokeLinecap="round" />
-          {/* leaf */}
-          <path d="M112 40 C 132 22, 156 26, 158 30 C 152 50, 130 56, 112 46 Z" fill="#7FBF8B" />
-          {/* apple body */}
-          <path
-            d="M100 66
-               C 72 44, 28 58, 26 104
-               C 24 146, 58 190, 88 186
-               C 93 185, 97 183, 100 180
-               C 103 183, 107 185, 112 186
-               C 142 190, 176 146, 174 104
-               C 172 58, 128 44, 100 66 Z"
-            fill="url(#appleskin)"
-          />
-          {/* shine */}
-          <ellipse cx="66" cy="98" rx="16" ry="26" fill="#fff" opacity="0.45" transform="rotate(-18 66 98)" />
-          {/* sparkles */}
-          <circle cx="176" cy="60" r="5" fill="#F7DE9C" />
-          <circle cx="26" cy="66" r="4" fill="#8FA9E0" opacity="0.8" />
-          <circle cx="186" cy="140" r="4" fill="#CDEBD3" />
-        </motion.svg>
-        <motion.span
-          className="absolute -right-9 top-8 text-4xl"
-          animate={{ rotate: [0, 15, 0], y: [0, -8, 0] }}
-          transition={{ repeat: Infinity, duration: 4 }}
-        >
-          🐦
-        </motion.span>
-        <motion.span
-          className="absolute -left-10 bottom-10 text-4xl"
-          animate={{ rotate: [0, -15, 0], y: [0, -10, 0] }}
-          transition={{ repeat: Infinity, duration: 5, delay: 0.5 }}
-        >
-          🌹
-        </motion.span>
-      </motion.div>
-
-      <motion.p
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center">
+        <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.2, duration: 0.8 }}
         className="font-script text-3xl text-snow-red-deep md:text-4xl"
       >
-        mirror, mirror on the wall…
+        Mirror, mirror on the wall…
       </motion.p>
 
       <motion.h1
@@ -202,12 +141,13 @@ export default function Hero() {
           RSVP Now 💌
         </Button>
       </motion.div>
+      </div>
 
       {/* Scroll hint */}
       <motion.a
         href="#story"
         aria-label="Scroll down"
-        className="absolute bottom-6 text-2xl text-snow-blue-deep"
+        className="absolute bottom-6 z-10 text-2xl text-snow-blue-deep"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 1.8 }}
       >

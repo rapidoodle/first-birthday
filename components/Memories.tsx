@@ -20,7 +20,7 @@ export default function Memories() {
   return (
     <Section id="memories">
       <SectionTitle
-        eyebrow="watch her grow"
+        eyebrow="Watch her grow"
         title="Monthly Memories 🍎"
         subtitle="Twelve months of sweetness — one adorable moment at a time."
       />

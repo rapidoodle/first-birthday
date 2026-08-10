@@ -32,7 +32,7 @@ export default function VenueVideo() {
     >
       <div className="rounded-[2rem] border border-white/70 bg-white/70 p-4 shadow-snow-lg backdrop-blur-xl md:p-6">
         <p className="mb-1 text-center font-script text-2xl text-snow-red-deep">
-          a peek at the venue…
+          A peek at the venue…
         </p>
         <p className="mb-4 text-center text-sm text-snow-ink/70">
           🏰 {event.venueName}, {event.venueAddress}

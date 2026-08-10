@@ -49,7 +49,7 @@ export default function GatePage() {
           The Fairest Little One
         </h1>
         <p className="mt-2 font-script text-xl text-snow-red-deep">
-          mirror, mirror on the wall…
+          Mirror, mirror on the wall…
         </p>
 
         <form onSubmit={submit} className="mt-8 space-y-4">

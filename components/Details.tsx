@@ -73,7 +73,7 @@ export default function Details() {
   return (
     <Section id="details">
       <SectionTitle
-        eyebrow="save the date"
+        eyebrow="Save the date"
         title="Birthday Details 🍎"
         subtitle="Everything you need to know before the sweetest day of the year."
       />

@@ -63,7 +63,7 @@ export default function Rsvp() {
   return (
     <Section id="rsvp">
       <SectionTitle
-        eyebrow="will you join us?"
+        eyebrow="Will you join us?"
         title="RSVP 🎈"
         subtitle="Kindly respond by August 9 so we can save you a seat at the cottage."
       />

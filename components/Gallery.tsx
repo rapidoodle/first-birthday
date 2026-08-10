@@ -33,7 +33,7 @@ export default function Gallery() {
   return (
     <Section id="gallery">
       <SectionTitle
-        eyebrow="little moments"
+        eyebrow="Little moments"
         title="Enchanted Gallery 📸"
         subtitle="A few more pages from her little storybook."
       />
