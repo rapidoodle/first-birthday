@@ -12,7 +12,8 @@ export const event = {
   timeLabel: "2:00 PM – 5:00 PM",
   venueName: "Kinder City",
   venueAddress: "Vista Mall, Sta. Rosa, Laguna",
-  dressCode: "Storybook pastels — little princes & princesses welcome!",
+  dressCode: `Storybook pastels — little princes & princesses welcome! 👑✨
+Kindly no Snow White costumes, as Snow White is reserved for our birthday girl. 🍎👸`,
   // Google Maps: paste your venue link, or leave as search query
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Kinder+City+Vista+Mall+Santa+Rosa+Laguna",
