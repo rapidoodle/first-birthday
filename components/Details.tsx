@@ -143,25 +143,6 @@ export default function Details() {
 
       {/* Venue video (shows once venueVideoUrl is set in lib/config.ts) */}
       <VenueVideo />
-
-      {/* QR code */}
-      <Reveal delay={0.35} className="mx-auto mt-12 max-w-xs text-center">
-        <div className="rounded-3xl border border-white/70 bg-white/70 p-6 shadow-snow backdrop-blur-xl">
-          <p className="font-script text-xl text-snow-red-deep">scan me!</p>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`https://api.qrserver.com/v1/create-qr-code/?size=180x180&color=44578F&bgcolor=ffffff&data=${encodeURIComponent(event.siteUrl)}`}
-            alt="QR code linking to this invitation"
-            width={180}
-            height={180}
-            loading="lazy"
-            className="mx-auto mt-3 rounded-2xl"
-          />
-          <p className="mt-3 text-xs text-snow-ink/60">
-            Share this QR so guests can open the invitation instantly 💌
-          </p>
-        </div>
-      </Reveal>
     </Section>
   );
 }
