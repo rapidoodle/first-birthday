@@ -259,7 +259,7 @@ export default function AdminPage() {
             </h2>
             <Button
               size="sm"
-              variant="outline"
+              variant="secondary"
               onClick={() => fetchRsvps(password)}
               disabled={rsvpLoading}
             >
