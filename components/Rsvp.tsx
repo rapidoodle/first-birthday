@@ -65,7 +65,7 @@ export default function Rsvp() {
       <SectionTitle
         eyebrow="Will you join us?"
         title="RSVP 🎈"
-        subtitle="Kindly respond by August 9 so we can save you a seat at the cottage."
+        subtitle="Kindly respond by August 16 so we can save you a seat at the cottage."
       />
 
       <Reveal className="mx-auto max-w-xl">
