@@ -6,6 +6,7 @@ import { Section, SectionTitle } from "@/components/Section";
 import SnowPhoto from "@/components/SnowPhoto";
 import Lightbox from "@/components/Lightbox";
 import { usePhotoManifest } from "@/lib/photos";
+import { event } from "@/lib/config";
 
 /** Masonry gallery — photos uploaded via /admin (falls back to /public/photos). */
 const ASPECTS = [
@@ -34,8 +35,8 @@ export default function Gallery() {
     <Section id="gallery">
       <SectionTitle
         eyebrow="Little moments"
-        title="Enchanted Gallery 📸"
-        subtitle="A few more pages from her little storybook."
+        title="Dino Day Gallery 📸"
+        subtitle={`A few more snapshots from ${event.childName}'s prehistoric adventure.`}
       />
 
       <div className="masonry mx-auto max-w-5xl">

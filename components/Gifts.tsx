@@ -1,6 +1,7 @@
 "use client";
 
 import { Section, Reveal } from "@/components/Section";
+import { event } from "@/lib/config";
 
 export default function Gifts() {
   return (
@@ -18,8 +19,8 @@ export default function Gifts() {
               Your presence is the sweetest gift. 💕
             </p>
             <p className="mt-2 leading-relaxed text-snow-ink/70">
-              If you&apos;d still like to bless Niane, a small contribution toward
-              her future is greatly appreciated.
+              If you&apos;d still like to bless {event.childName}, a small contribution toward
+              his future is greatly appreciated.
             </p>
           </div>
         </div>

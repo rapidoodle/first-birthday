@@ -27,14 +27,14 @@ function useCountdown(targetISO: string) {
   return t;
 }
 
-/** Enchanted lantern orbs drifting along the top of the hero. */
+/** Warm jungle lights drifting along the top of the hero. */
 const ORBS = [
-  { c: "#E2707D", x: 8, d: 0 },
-  { c: "#F7DE9C", x: 22, d: 0.4 },
-  { c: "#8FA9E0", x: 36, d: 0.8 },
-  { c: "#C9E2F5", x: 62, d: 0.2 },
-  { c: "#7FBF8B", x: 76, d: 0.6 },
-  { c: "#FFDDE1", x: 90, d: 1.0 },
+  { c: "#F6B73C", x: 8, d: 0 },
+  { c: "#F47D32", x: 22, d: 0.4 },
+  { c: "#6FBF73", x: 36, d: 0.8 },
+  { c: "#B7D96B", x: 62, d: 0.2 },
+  { c: "#2D7A55", x: 76, d: 0.6 },
+  { c: "#F6D77A", x: 90, d: 1.0 },
 ];
 
 export default function Hero() {
@@ -71,7 +71,7 @@ export default function Hero() {
         transition={{ delay: 2.2, duration: 0.8 }}
         className="font-script text-3xl text-snow-red-deep md:text-4xl"
       >
-        Mirror, mirror on the wall…
+        {event.heroEyebrow}
       </motion.p>
 
       <motion.h1
@@ -80,11 +80,7 @@ export default function Hero() {
         transition={{ delay: 2.35, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="mt-3 max-w-4xl font-display text-5xl font-extrabold leading-tight text-snow-royal md:text-7xl"
       >
-        🍎 Niane, the{" "}
-        <span className="bg-gradient-to-r from-snow-red-deep via-snow-red to-snow-blue-deep bg-clip-text text-transparent">
-          Fairest Little One
-        </span>
-        , is turning one! ✨
+        {event.accentEmoji} {event.heroTitle} ✨
       </motion.h1>
 
       <motion.p
@@ -93,7 +89,7 @@ export default function Hero() {
         transition={{ delay: 2.55, duration: 0.8 }}
         className="mt-5 max-w-xl text-lg text-snow-ink/80 md:text-xl"
       >
-        Join us as we celebrate our little sweetheart&apos;s first birthday!
+        {event.heroSubtitle}
       </motion.p>
 
       {/* Countdown */}
@@ -127,7 +123,7 @@ export default function Hero() {
       </motion.div>
       {t?.done && (
         <p className="mt-4 font-script text-3xl text-snow-red-deep">
-          It&apos;s party time! 🎉
+          It&apos;s party time! {event.decorativeEmojis[0]}
         </p>
       )}
 

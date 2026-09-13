@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
-  { id: "home", label: "Home", emoji: "🍎" },
-  { id: "memories", label: "Memories", emoji: "📖" },
-  { id: "details", label: "Details", emoji: "👑" },
-  { id: "rsvp", label: "RSVP", emoji: "🎈" },
+  { id: "home", label: "Home", emoji: "🦖" },
+  { id: "memories", label: "Memories", emoji: "🥚" },
+  { id: "details", label: "Details", emoji: "🌿" },
+  { id: "rsvp", label: "RSVP", emoji: "🌋" },
   { id: "gallery", label: "Gallery", emoji: "📸" },
 ];
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-const SPARKLES = ["✨", "🍎", "⭐", "💛"];
+const SPARKLES = ["✨", "🦖", "⭐", "🌿"];
 
 /** Tiny snow sparkles trail the cursor (desktop only, throttled). */
 export default function CursorSparkles() {

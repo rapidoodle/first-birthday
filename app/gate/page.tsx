@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { event } from "@/lib/config";
 
 export default function GatePage() {
   const [passcode, setPasscode] = useState("");
@@ -43,13 +44,13 @@ export default function GatePage() {
           transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
           aria-hidden
         >
-          🪞
+          🦖
         </motion.span>
         <h1 className="mt-4 font-display text-3xl font-bold text-snow-royal">
-          The Fairest Little One
+          {event.childName}&apos;s Dino Day
         </h1>
         <p className="mt-2 font-script text-xl text-snow-red-deep">
-          Mirror, mirror on the wall…
+          Enter the secret explorer code…
         </p>
 
         <form onSubmit={submit} className="mt-8 space-y-4">
@@ -81,7 +82,7 @@ export default function GatePage() {
         </form>
 
         <p className="mt-6 text-xs text-snow-ink/50">
-          The magic word is on your invitation. 🍎
+          The secret code is on your invitation. 🥚
         </p>
       </motion.div>
     </main>

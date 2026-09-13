@@ -10,7 +10,7 @@ const pastels = [
   "from-snow-blue to-snow-sky",
   "from-snow-leaf to-snow-gold",
 ];
-const emojis = ["🍎", "👑", "🐦", "✨", "🌹", "🍄", "🌲", "💛"];
+const emojis = ["🦖", "🦕", "🥚", "✨", "🌿", "🌋", "🌴", "☀️"];
 
 /**
  * Renders /public{src}. If the file doesn't exist yet, shows a cute

@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import { Section, SectionTitle } from "@/components/Section";
 import SnowPhoto from "@/components/SnowPhoto";
 import Lightbox from "@/components/Lightbox";
-import { milestones } from "@/lib/config";
+import { event, milestones } from "@/lib/config";
 import { usePhotoManifest } from "@/lib/photos";
 
-const MONTH_EMOJI = ["🍼", "😊", "🎀", "🧸", "🥄", "🌷", "🗣️", "🐣", "🌟", "👋", "👣", "🎂"];
+const MONTH_EMOJI = ["🥚", "😊", "🦕", "🧸", "🥄", "🌿", "🗣️", "🐣", "🌟", "👋", "👣", "🎂"];
 
 /** 12 monthly memory cards — uploaded via /admin (falls back to /public/photos). */
 export default function Memories() {
@@ -20,9 +20,9 @@ export default function Memories() {
   return (
     <Section id="memories">
       <SectionTitle
-        eyebrow="Watch her grow"
-        title="Monthly Memories 🍎"
-        subtitle="Twelve months of sweetness — one adorable moment at a time."
+        eyebrow="Watch him grow"
+        title={`Monthly Memories ${event.accentEmoji}`}
+        subtitle={`Twelve months of ${event.childName}'s biggest discoveries — one adorable moment at a time.`}
       />
 
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 lg:grid-cols-4">
@@ -42,7 +42,7 @@ export default function Memories() {
               <SnowPhoto
                 key={monthSrc(i + 1)}
                 src={monthSrc(i + 1)}
-                alt={`Niane at month ${i + 1}`}
+                alt={`${event.childName} at month ${i + 1}`}
                 seed={i}
                 className="transition-transform duration-500 group-hover:scale-105"
               />
@@ -75,7 +75,7 @@ export default function Memories() {
           <SnowPhoto
             key={monthSrc(selected + 1)}
             src={monthSrc(selected + 1)}
-            alt={`Niane at month ${selected + 1}`}
+            alt={`${event.childName} at month ${selected + 1}`}
             seed={selected}
             aspect="aspect-[4/3]"
             className="max-h-[65vh] w-[min(80vw,640px)]"

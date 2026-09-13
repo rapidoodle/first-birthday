@@ -4,7 +4,10 @@ import { useRef, useState } from "react";
 import { Loader2, Trash2, Upload, Lock, Check, Users, UserCheck, UserX, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 import { usePhotoManifest, fetchManifest, type PhotoManifest } from "@/lib/photos";
+import { event } from "@/lib/config";
 
 interface RsvpRecord {
   id: string;
@@ -15,6 +18,15 @@ interface RsvpRecord {
   allergies: string | null;
   message: string | null;
   created_at: string;
+}
+
+interface EventSettings {
+  dateISO: string;
+  dateLabel: string;
+  timeLabel: string;
+  venueName: string;
+  venueAddress: string;
+  dressCode: string;
 }
 
 /**
@@ -52,7 +64,16 @@ export default function AdminPage() {
   const [manifest, setManifest] = useState<PhotoManifest | null>(null);
   const [rsvps, setRsvps] = useState<RsvpRecord[]>([]);
   const [rsvpLoading, setRsvpLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState<"rsvps" | "photos">("rsvps");
+  const [activeTab, setActiveTab] = useState<"rsvps" | "photos" | "details">("rsvps");
+  const [settings, setSettings] = useState<EventSettings>({
+    dateISO: event.dateISO.slice(0, 10),
+    dateLabel: event.dateLabel,
+    timeLabel: event.timeLabel,
+    venueName: event.venueName,
+    venueAddress: event.venueAddress,
+    dressCode: event.dressCode,
+  });
+  const [settingsSaving, setSettingsSaving] = useState(false);
   const loaded = usePhotoManifest();
   const galleryInput = useRef<HTMLInputElement>(null);
 
@@ -74,6 +95,34 @@ export default function AdminPage() {
       // ignore
     } finally {
       setRsvpLoading(false);
+    }
+  };
+
+  const fetchSettings = async () => {
+    const res = await fetch("/api/event-settings");
+    if (res.ok) setSettings(await res.json());
+  };
+
+  const saveSettings = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSettingsSaving(true);
+    setError("");
+    try {
+      const res = await fetch("/api/event-settings", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${password}`,
+        },
+        body: JSON.stringify(settings),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Could not save event details");
+      setSettings(data);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Could not save event details");
+    } finally {
+      setSettingsSaving(false);
     }
   };
 
@@ -102,6 +151,7 @@ export default function AdminPage() {
     if (res.ok) {
       setUnlocked(true);
       fetchRsvps(password);
+      fetchSettings();
     } else {
       setAuthError("Wrong password.");
     }
@@ -189,7 +239,7 @@ export default function AdminPage() {
   return (
     <main className="mx-auto max-w-4xl px-5 py-12">
       <h1 className="font-display text-3xl font-bold text-snow-royal">
-        🍎 Niane&apos;s Admin Panel
+        🦖 {event.childName}&apos;s Admin Panel
       </h1>
 
       {/* Tabs */}
@@ -215,6 +265,17 @@ export default function AdminPage() {
         >
           <Upload size={16} />
           Photos
+        </button>
+        <button
+          onClick={() => setActiveTab("details")}
+          className={`flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
+            activeTab === "details"
+              ? "bg-snow-royal text-white"
+              : "bg-white/60 text-snow-ink hover:bg-white/80"
+          }`}
+        >
+          <Check size={16} />
+          Event Details
         </button>
       </div>
 
@@ -472,6 +533,43 @@ export default function AdminPage() {
             )}
           </div>
         </div>
+      )}
+
+      {activeTab === "details" && (
+        <form onSubmit={saveSettings} className="mt-6 space-y-5 rounded-3xl border border-white/70 bg-white/70 p-6 shadow-snow backdrop-blur-xl md:p-8">
+          <div>
+            <h2 className="font-display text-2xl font-bold text-snow-royal">Event Details</h2>
+            <p className="mt-1 text-sm text-snow-ink/70">
+              Changes are saved for every guest who opens the invitation.
+            </p>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div>
+              <Label htmlFor="event-date">Date</Label>
+              <Input id="event-date" type="date" value={settings.dateISO} onChange={(e) => setSettings({ ...settings, dateISO: e.target.value })} required />
+            </div>
+            <div>
+              <Label htmlFor="event-time">Time</Label>
+              <Input id="event-time" value={settings.timeLabel} onChange={(e) => setSettings({ ...settings, timeLabel: e.target.value })} placeholder="2:00 PM – 5:00 PM" required />
+            </div>
+          </div>
+          <div>
+            <Label htmlFor="event-venue">Venue</Label>
+            <Input id="event-venue" value={settings.venueName} onChange={(e) => setSettings({ ...settings, venueName: e.target.value })} placeholder="Venue name" required />
+          </div>
+          <div>
+            <Label htmlFor="event-address">Venue Address</Label>
+            <Input id="event-address" value={settings.venueAddress} onChange={(e) => setSettings({ ...settings, venueAddress: e.target.value })} placeholder="Full venue address" required />
+          </div>
+          <div>
+            <Label htmlFor="event-dress-code">Dress Code</Label>
+            <Textarea id="event-dress-code" value={settings.dressCode} onChange={(e) => setSettings({ ...settings, dressCode: e.target.value })} placeholder="What should guests wear?" required />
+          </div>
+          <Button type="submit" disabled={settingsSaving}>
+            {settingsSaving ? <Loader2 className="animate-spin" size={18} /> : <Check size={18} />}
+            {settingsSaving ? "Saving…" : "Save Event Details"}
+          </Button>
+        </form>
       )}
     </main>
   );

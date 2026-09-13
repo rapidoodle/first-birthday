@@ -14,11 +14,12 @@ import {
   isDemoMode,
   type WishEntry,
 } from "@/lib/supabase";
+import { event } from "@/lib/config";
 
 const SAMPLE_WISHES: WishEntry[] = [
   { name: "Lola & Lolo", message: "Happy 1st birthday, our sweetest apo! 💗" },
-  { name: "Tita Mia", message: "Can't believe Niane is one already! See you at the party ✨" },
-  { name: "The Santos Family", message: "Wishing our little sweetheart a lifetime of joy! 🎈" },
+  { name: "Tita Mia", message: "Can't believe Shane is one already! See you at the party ✨" },
+  { name: "The Santos Family", message: "Wishing our little explorer a lifetime of joy! 🦕" },
 ];
 
 export default function Guestbook() {
@@ -57,7 +58,7 @@ export default function Guestbook() {
       <SectionTitle
         eyebrow="Leave some love"
         title="Guestbook 💌"
-        subtitle="Drop a birthday wish for Niane — before or after the party!"
+        subtitle={`Drop a birthday wish for ${event.childName} — before or after the party!`}
       />
 
       <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-5">
@@ -78,7 +79,7 @@ export default function Guestbook() {
                 id="wish-message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="Dear Niane…"
+                placeholder={`Dear ${event.childName}…`}
               />
             </div>
             <Button
@@ -100,7 +101,7 @@ export default function Guestbook() {
           {wishes.length === 0 && (
             <Reveal>
               <p className="rounded-3xl border border-white/70 bg-white/60 p-6 text-center text-snow-ink/60 shadow-snow backdrop-blur">
-                Be the first to leave a magical wish! ✨
+                Be the first to leave a birthday roar! 🦖
               </p>
             </Reveal>
           )}

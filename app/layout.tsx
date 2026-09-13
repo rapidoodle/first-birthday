@@ -22,18 +22,18 @@ const script = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: "Niane, the Fairest Little One 🍎 | First Birthday",
-  description: `Join us as we celebrate ${event.fullName}'s first birthday on ${event.dateLabel}. RSVP inside!`,
+  title: `${event.childName}'s ${event.age}st Birthday ${event.accentEmoji} | ${event.theme}`,
+  description: `Join us as we celebrate ${event.fullName}'s ${event.age} birthday on ${event.dateLabel}. RSVP inside!`,
   metadataBase: new URL(event.siteUrl),
   robots: { index: false, follow: false }, // private family site — keep off Google
   openGraph: {
-    title: "🍎 Niane, the Fairest Little One, is turning ONE ✨",
+    title: `${event.accentEmoji} ${event.childName} is turning ${event.age}!`,
     description:
-      "One whole year of smiles, giggles, and unforgettable memories. Join us for a storybook Snow White celebration!",
+      event.heroSubtitle,
     type: "website",
   },
   icons: {
-    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍎</text></svg>",
+    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦖</text></svg>",
   },
 };
 

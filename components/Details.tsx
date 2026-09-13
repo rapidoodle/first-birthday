@@ -20,6 +20,15 @@ interface Weather {
   rain: number;
 }
 
+interface EventSettings {
+  dateISO: string;
+  dateLabel: string;
+  timeLabel: string;
+  venueName: string;
+  venueAddress: string;
+  dressCode: string;
+}
+
 function useEventWeather() {
   const [weather, setWeather] = useState<Weather | null>(null);
   const [status, setStatus] = useState<"loading" | "ok" | "far" | "error">("loading");
@@ -50,36 +59,46 @@ function useEventWeather() {
   return { weather, status };
 }
 
-const CARDS = [
-  {
-    icon: CalendarHeart,
-    emoji: "🍎",
-    label: "Date",
-    value: event.dateLabel,
-  },
-  { icon: Clock3, emoji: "🪞", label: "Time", value: event.timeLabel },
-  {
-    icon: MapPin,
-    emoji: "🏰",
-    label: "Venue",
-    value: `${event.venueName} · ${event.venueAddress}`,
-  },
-  { icon: Shirt, emoji: "👑", label: "Dress Code", value: event.dressCode },
-];
-
 export default function Details() {
   const { weather, status } = useEventWeather();
+  const [settings, setSettings] = useState<EventSettings>({
+    dateISO: event.dateISO.slice(0, 10),
+    dateLabel: event.dateLabel,
+    timeLabel: event.timeLabel,
+    venueName: event.venueName,
+    venueAddress: event.venueAddress,
+    dressCode: event.dressCode,
+  });
+
+  useEffect(() => {
+    fetch("/api/event-settings")
+      .then((response) => (response.ok ? response.json() : null))
+      .then((data) => data && setSettings(data))
+      .catch(() => undefined);
+  }, []);
+
+  const cards = [
+    { icon: CalendarHeart, emoji: "📅", label: "Date", value: settings.dateLabel },
+    { icon: Clock3, emoji: "⏰", label: "Time", value: settings.timeLabel },
+    {
+      icon: MapPin,
+      emoji: "🦖",
+      label: "Venue",
+      value: `${settings.venueName} · ${settings.venueAddress}`,
+    },
+    { icon: Shirt, emoji: "🌿", label: "Dress Code", value: settings.dressCode },
+  ];
 
   return (
     <Section id="details">
       <SectionTitle
         eyebrow="Save the date"
-        title="Birthday Details 🍎"
-        subtitle="Everything you need to know before the sweetest day of the year."
+        title={`Birthday Details ${event.accentEmoji}`}
+        subtitle={`Everything you need to know before ${event.childName}'s wildest adventure.`}
       />
 
       <div className="mx-auto grid max-w-4xl gap-5 sm:grid-cols-2">
-        {CARDS.map(({ icon: Icon, emoji, label, value }, i) => (
+        {cards.map(({ icon: Icon, emoji, label, value }, i) => (
           <Reveal key={label} delay={i * 0.1}>
             <div className="group flex h-full items-start gap-4 rounded-3xl border border-white/70 bg-white/65 p-6 shadow-snow backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-glow">
               <div className="relative">
@@ -114,10 +133,10 @@ export default function Details() {
               Weather on the big day
             </p>
             <p className="mt-1 text-sm font-semibold text-snow-ink/85">
-              {status === "loading" && "Asking the magic mirror…"}
+              {status === "loading" && "Checking the jungle forecast…"}
               {status === "far" &&
-                "Forecast unlocks about two weeks before the party — check back soon! ☁️"}
-              {status === "error" && "The mirror is cloudy — try again later."}
+                "The forecast unlocks about two weeks before the party — check back soon! ☁️"}
+              {status === "error" && "The jungle forecast is cloudy — try again later."}
               {status === "ok" &&
                 weather &&
                 `${weather.tMin}°–${weather.tMax}°C with a ${weather.rain}% chance of rain. 🌤️`}

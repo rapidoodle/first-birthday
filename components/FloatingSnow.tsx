@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const STORYBOOK = ["🍎", "✨", "👑", "🐦", "🌹", "🍄", "🌲", "💛", "🪞", "🦋"];
+const STORYBOOK = ["🦖", "✨", "🦕", "🌿", "🌋", "🥚", "🌴", "☀️", "🦴", "🍃"];
 
 interface Sprite {
   emoji: string;

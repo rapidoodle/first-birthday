@@ -18,6 +18,17 @@ create table if not exists public.wishes (
   created_at timestamptz not null default now()
 );
 
+create table if not exists public.event_settings (
+  id integer primary key default 1 check (id = 1),
+  date_iso date not null,
+  date_label text not null,
+  time_label text not null,
+  venue_name text not null,
+  venue_address text not null,
+  dress_code text not null,
+  updated_at timestamptz not null default now()
+);
+
 -- Allow anonymous inserts (guests submitting the forms)
 alter table public.rsvps enable row level security;
 alter table public.wishes enable row level security;

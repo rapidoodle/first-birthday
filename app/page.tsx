@@ -14,6 +14,7 @@ import Gifts from "@/components/Gifts";
 import Guestbook from "@/components/Guestbook";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import { event } from "@/lib/config";
 
 export default function Home() {
   return (
@@ -21,13 +22,13 @@ export default function Home() {
       {/* Fixed background image */}
       <div className="fixed inset-0 -z-10">
         <Image
-          src="/photos/niane_banner.jpeg"
-          alt=""
+          src={event.heroImage}
+          alt={`${event.fullName} dinosaur birthday portrait`}
           fill
           className="object-cover object-top"
           priority
         />
-        <div className="absolute inset-0 bg-white/60" />
+        <div className="absolute inset-0 bg-[#f5f0d8]/55" />
       </div>
 
       <LoadingScreen />

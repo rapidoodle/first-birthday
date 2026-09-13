@@ -14,6 +14,7 @@ import { Label } from "@/components/ui/label";
 import { submitRsvp } from "@/lib/supabase";
 import { snowBurst } from "@/components/FirstVisitConfetti";
 import { cn } from "@/lib/utils";
+import { event } from "@/lib/config";
 
 const schema = z.object({
   firstName: z.string().min(1, "Please enter a first name"),
@@ -65,14 +66,14 @@ export default function Rsvp() {
       <SectionTitle
         eyebrow="Will you join us?"
         title="RSVP 🎈"
-        subtitle="Kindly respond by August 16 so we can save you a seat at the cottage."
+        subtitle={event.rsvpDeadline}
       />
 
       <Reveal className="mx-auto max-w-xl">
         <div className="relative overflow-hidden rounded-[2.5rem] border border-white/70 bg-white/70 p-8 shadow-snow-lg backdrop-blur-xl md:p-10">
           {/* snow corner decorations */}
-          <span aria-hidden className="absolute -left-3 -top-3 text-4xl opacity-60">🍎</span>
-          <span aria-hidden className="absolute -bottom-3 -right-3 text-4xl opacity-60">🌹</span>
+          <span aria-hidden className="absolute -left-3 -top-3 text-4xl opacity-60">🦖</span>
+          <span aria-hidden className="absolute -bottom-3 -right-3 text-4xl opacity-60">🥚</span>
 
           <AnimatePresence mode="wait">
             {submitted ? (
@@ -134,8 +135,8 @@ export default function Rsvp() {
                   <div className="grid grid-cols-2 gap-3">
                     {(
                       [
-                        ["yes", "Yes, we'll be there! 🍎"],
-                        ["no", "Sadly, no 💔"],
+                        ["yes", "Yes, we’ll be there! 🦖"],
+                        ["no", "Sadly, no 🥚"],
                       ] as const
                     ).map(([value, label]) => (
                       <button
@@ -171,10 +172,10 @@ export default function Rsvp() {
                 </div>
 
                 <div>
-                  <Label htmlFor="message">Message for Niane</Label>
+                    <Label htmlFor="message">{event.rsvpMessageLabel}</Label>
                   <Textarea
                     id="message"
-                    placeholder="A sweet note for our birthday girl… (optional)"
+                    placeholder={event.rsvpMessagePlaceholder}
                     {...register("message")}
                   />
                 </div>
