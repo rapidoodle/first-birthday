@@ -18,7 +18,7 @@ export const event = {
   rsvpDeadline: "Please reply by October 7 so we can prepare the dinosaur den.",
   rsvpMessageLabel: "Message for Shane",
   rsvpMessagePlaceholder: "Leave a birthday roar for our little explorer… (optional)",
-  heroImage: "/photos/shane_dinosaur.jpg",
+  heroImage: "/photos/shane.png",
   accentEmoji: "🦖",
   decorativeEmojis: ["🦕", "🌋", "🥚", "🌿", "☀️", "🦴", "✨"],
   // Local date & time of the party in Atlantic Daylight Time.
