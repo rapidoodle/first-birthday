@@ -148,12 +148,6 @@ export default function Details() {
       <Reveal delay={0.3} className="mt-10 flex flex-wrap items-center justify-center gap-4">
         <Button
           variant="secondary"
-          onClick={() => window.open(event.mapsUrl, "_blank")}
-        >
-          <MapPin size={18} /> Open in Google Maps
-        </Button>
-        <Button
-          variant="secondary"
           onClick={() => window.open(calendarUrl, "_blank")}
         >
           <CalendarPlus size={18} /> Add to Google Calendar
