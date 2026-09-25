@@ -27,7 +27,12 @@ create table if not exists public.event_settings (
   venue_address text not null,
   dress_code text not null,
   updated_at timestamptz not null default now()
-);
+  );
+
+  alter table public.event_settings enable row level security;
+
+  create policy "event settings are public" on public.event_settings
+    for select using (true);  
 
 -- Allow anonymous inserts (guests submitting the forms)
 alter table public.rsvps enable row level security;
